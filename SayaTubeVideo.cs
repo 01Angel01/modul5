@@ -26,11 +26,31 @@ namespace modul5_1302202095
         {
             int hasil = playCount.Length;
         }
+
         public void printVideoDetails()
         {
             Console.WriteLine("ID : " + id);
             Console.WriteLine("Title : " + title);
             Console.WriteLine("PlayCount : " + playCount);
+        }
+
+        public static int DesignbyContrast(int id, int playCount)
+        {
+            Debug.Assert(id <= int.MaxValue && id >= int.MinValue);
+            Debug.Assert(playCount <= int.MaxValue && playCount >= int.MinValue);
+
+            int hasil;
+            try
+            {
+                hasil = checked(id);
+                Console.WriteLine("Pengecekan berjalan dengan lancar " + e.Message);
+            }
+            catch (OverflowException)
+            {
+                Console.WriteLine("Maaf, karena terjadi overflow pada program, maka output diganti dengan 0");
+                hasil = 0;
+            }
+            return hasil;
         }
     }
 }
